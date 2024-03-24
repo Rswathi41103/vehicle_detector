@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Uploaded Images</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding-top: 60px; /* Adjusted to accommodate fixed navbar */
+            margin: 0;
+        }
+        nav {
+            background-color: black;
+            color: white;
+            padding-right:20 px;
+            padding-left:20px;
+            padding:10px;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000; /* Ensure it's above other content */
+            display: flex;
+            justify-content: space-between; /* Align items to start and end */
+        }
+        nav h1 {
+            margin: 0; /* Remove default margin */
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-right: 20px;
+        }
+        nav a:hover {
+            color: grey;
+            text-decoration: underline;
+        }
+        .head{
+           text-align:center;
+           font-size:40px;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-wrap: wrap; /* Allow images to wrap */
+            justify-content: center; /* Center images horizontally */
+        }
+        ul li {
+            margin: 10px; /* Margin between images */
+        }
+        ul li img {
+            max-width: 400px;
+            max-height: 400px;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+         <h1>Vehicle Detector</h1>
+        <div>
+            <a href="{{ url_for('index') }}">Home</a>
+            <a href="{{ url_for('uploaded') }}">View Uploaded Images</a>
+        </div>
+    </nav>
+    <h1 class = "head"> Uploaded Images</h1>
+    <ul>
+        {% for image in uploaded_images %}
+        <li><img src="{{ url_for('static', filename='uploads/' + image) }}" alt="{{ image }}"></li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

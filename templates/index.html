@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/b230415f9c.js" crossorigin="anonymous"></script>
+    <title>Vehicle Detection</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-bottom: 80px; /* Add margin to account for the footer */
+        }
+        nav {
+            background-color: black;
+            color: white;
+            padding: 10px;
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        nav h1 {
+            margin-left: 15px;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-right: 20px;
+        }
+
+        nav a:hover{
+        color:grey;
+        text-decoration:underline;
+        }
+        input[type=file] {
+            background-color: black;
+            color: white;
+            padding: 15px;
+            margin-bottom: 8px;
+            border-radius:10px;
+        }
+        button[type=submit] {
+            background-color: black;
+            color: white;
+            padding: 15px;
+            border-radius:10px;
+        }
+        img {
+            max-width: 500px;
+            max-height: 500px;
+            margin-top: 20px;
+        }
+        p {
+            margin-top: 10px;
+        }
+        .qoute{
+             font-size:25px;
+             font-weight:bold;
+             font-style:italic;
+             font-family:"Times New Roman";
+        }
+        .image{
+            height:200px;
+            width:150px;
+            margin-bottom:10px;
+        }
+        /* Footer Styles */
+        footer {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background-color: black;
+            color: white;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <h1>Vehicle Detector</h1>
+        <div>
+            <a href="#">Home</a>
+            <a href="{{ url_for('uploaded') }}">Uploaded Images</a>
+        </div>
+    </nav>
+    <h1 class="qoute">"Spotting vehicles, paving the way for smoother journeys."</h1>
+    <img src="https://tse2.mm.bing.net/th/id/OIP.yGYiWunttQVWPCnxcZvA7wHaI2?rs=1&pid=ImgDetMain" class="image"/>
+    <form method="post" enctype="multipart/form-data">
+        <input type="file" name="file"><br>
+        <button type="submit">Upload</button>
+    </form>
+
+    {% if detected_image %}
+    <h2>Detected Image</h2>
+    <img src="{{ detected_image }}" alt="Detected Image">
+    <h2>Object Counts</h2>
+    <p>Number of detected vehicles: {{ vehicle_count }}</p>
+    {% endif %}
+
+    <footer>
+         <p class = "copy-para">copyright <i class="fa-solid fa-copyright copy-icon"></i> 2024 Swathi Ramesh.All Rights Reserved</p>
+    </footer>
+
+    <script>
+        document.querySelector('input[type="file"]').addEventListener('change', function() {
+            document.getElementById('filename').innerText = this.files[0].name;
+        });
+    </script>
+</body>
+</html>
+
+
