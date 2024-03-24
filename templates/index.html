@@ -38,35 +38,51 @@
             background-color: black;
             color: white;
             padding: 15px;
-            margin-bottom: 8px;
+            margin-bottom: 10px;
             border-radius:10px;
+            cursor:pointer;
         }
         button[type=submit] {
             background-color: black;
             color: white;
-            padding: 15px;
+            padding: 10px;
             border-radius:10px;
+            cursor:pointer;
+        }
+        button[type=submit]:hover{
+             background-color:grey;
+             cursor:pointer;
+             border:0px;
         }
         img {
-            max-width: 500px;
-            max-height: 500px;
-            margin-top: 20px;
+            width:400px; /* Adjust image width to fit container */
+            height:400px; /* Maintain aspect ratio */
+            margin-top:5px;
+        }
+        h2{
+          text-decoration:underline;
         }
         p {
             margin-top: 10px;
         }
-        .qoute{
-             font-size:25px;
-             font-weight:bold;
-             font-style:italic;
-             font-family:"Times New Roman";
+        .qoute {
+            font-size: 25px;
+            font-weight: bold;
+            font-style: italic;
+            font-family: "Times New Roman";
+            margin-bottom: 20px;
         }
-        .image{
-            height:200px;
-            width:150px;
-            margin-bottom:10px;
+        .image {
+            width: 150px; /* Adjust image width to fit container */
+            height: 100px; /* Maintain aspect ratio */
+            margin-bottom: 10px;
         }
-        /* Footer Styles */
+
+        .para{
+           font-size:15px;
+           margin:0px;
+        }
+
         footer {
             position: fixed;
             bottom: 0;
@@ -74,7 +90,29 @@
             width: 100%;
             background-color: black;
             color: white;
-            padding: 10px;
+            padding: 1px;
+        }
+
+        /* Media Queries */
+        @media only screen and (min-width: 768px) {
+            /* Medium devices (tablets) */
+            .qoute {
+                font-size: 25px;
+            }
+        }
+
+        @media only screen and (min-width: 992px) {
+            /* Large devices (desktops) */
+            .qoute {
+                font-size: 30px;
+            }
+        }
+
+        @media only screen and (min-width: 1200px) {
+            /* Extra large devices (large desktops) */
+            .qoute {
+                font-size:35px;
+            }
         }
     </style>
 </head>
@@ -87,9 +125,9 @@
         </div>
     </nav>
     <h1 class="qoute">"Spotting vehicles, paving the way for smoother journeys."</h1>
-    <img src="https://tse2.mm.bing.net/th/id/OIP.yGYiWunttQVWPCnxcZvA7wHaI2?rs=1&pid=ImgDetMain" class="image"/>
+    <img src="https://res.cloudinary.com/dcfulqrcl/image/upload/v1711266550/car_1_hi1rfb.jpg" class="image"/>
     <form method="post" enctype="multipart/form-data">
-        <input type="file" name="file"><br>
+        <input type="file" name="file" placeholder="Select an Image"> <p class = "para">Select an Image  <i class="fa-solid fa-hand-point-up"></i>  Here</p><br>
         <button type="submit">Upload</button>
     </form>
 
@@ -101,7 +139,7 @@
     {% endif %}
 
     <footer>
-         <p class = "copy-para">copyright <i class="fa-solid fa-copyright copy-icon"></i> 2024 Swathi Ramesh.All Rights Reserved</p>
+         <p class="copy-para">Copyright <i class="fas fa-copyright copy-icon"></i> 2024 Swathi Ramesh. All Rights Reserved</p>
     </footer>
 
     <script>
@@ -111,5 +149,6 @@
     </script>
 </body>
 </html>
+
 
 
