@@ -55,7 +55,7 @@
              border:0px;
         }
         img {
-            width:400px; /* Adjust image width to fit container */
+            width:600px; /* Adjust image width to fit container */
             height:400px; /* Maintain aspect ratio */
             margin-top:5px;
         }
@@ -73,8 +73,8 @@
             margin-bottom: 20px;
         }
         .image {
-            width: 150px; /* Adjust image width to fit container */
-            height: 100px; /* Maintain aspect ratio */
+            width:450px; /* Adjust image width to fit container */
+            height: 300px; /* Maintain aspect ratio */
             margin-bottom: 10px;
         }
 
@@ -125,9 +125,13 @@
         </div>
     </nav>
     <h1 class="qoute">"Spotting vehicles, paving the way for smoother journeys."</h1>
-    <img src="https://res.cloudinary.com/dcfulqrcl/image/upload/v1711266550/car_1_hi1rfb.jpg" class="image"/>
+    <div id="previewContainer">
+        <img id="imagePreview" class="image" src="https://res.cloudinary.com/dcfulqrcl/image/upload/v1711266550/car_1_hi1rfb.jpg" >
+        <p id="filename"></p>
+    </div>
+
     <form method="post" enctype="multipart/form-data">
-        <input type="file" name="file" placeholder="Select an Image"> <p class = "para">Select an Image  <i class="fa-solid fa-hand-point-up"></i>  Here</p><br>
+        <input type="file" name="file" id="fileInput" placeholder="Select an Image"> <p class = "para">Select an Image  <i class="fa-solid fa-hand-point-up"></i>  Here</p><br>
         <button type="submit">Upload</button>
     </form>
 
@@ -143,12 +147,16 @@
     </footer>
 
     <script>
-        document.querySelector('input[type="file"]').addEventListener('change', function() {
-            document.getElementById('filename').innerText = this.files[0].name;
+        document.getElementById('fileInput').addEventListener('change', function() {
+            var file = this.files[0];
+            document.getElementById('filename').innerText = file.name;
+
+            var reader = new FileReader();
+            reader.onload = function(event) {
+                document.getElementById('imagePreview').src = event.target.result;
+            };
+            reader.readAsDataURL(file);
         });
     </script>
 </body>
 </html>
-
-
-
