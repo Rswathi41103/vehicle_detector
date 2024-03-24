@@ -30,5 +30,9 @@ The Vehicle Detector is a web application designed to detect and count vehicles 
 
 ## Output
 
-https://github.com/Rswathi41103/vehicle_detector/assets/155225086/2c05ac42-764f-4223-9d15-bff065651df1
+
+
+
+
+https://github.com/Rswathi41103/vehicle_detector/assets/155225086/c295d8a3-fd7d-4257-a646-09593eb77f96
 
